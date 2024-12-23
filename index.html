@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneaX</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Добавьте это, если еще не сделано, чтобы скрыть модальное окно по умолчанию */
+        .modal-window {
+            display: none; /* Скрыть по умолчанию */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-window.active {
+            display: flex; /* Показывать модальное окно при добавлении класса active */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="menu">
+                <a href="man.html">Man</a>
+                <a href="woman.html">Women</a>
+                <a href="kids.html">Kids</a>
+                <a href="yandexgpt.html">YandexGPT</a>
+            </div>
+
+            <div class="logo">
+                <a href="index.html">Sneakers</a>
+            </div>
+
+            <div class="auth">
+                <a href='#open-modal' onclick="openModal()">
+                    <p>Auth</p>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="open-modal" class="modal-window">
+            <div>
+              <a href="#" class="modal-close" onclick="closeModal()">Close</a>
+              <p>Auth</p>
+              <div>
+                <form id="auth-form" onsubmit="return login(event)">
+                    <input class="inp" type="email" placeholder="Email" required>
+                    <input class="inp" type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+              </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <a class="block" href='#'>
+                <img src="images/men.jpg">
+                <div class="mask">
+                    <h1>Men</h1>
+                    <div class="hvr">
+                        <p>Кроссовки</p>
+                        <p>Кеды</p>
+                        <p>Ботинки</p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="block" href='#'>
+                <img src="images/women.jpg">
+                <div class="mask">
+                    <h1>Women</h1>
+                    <div class="hvr">
+                        <p>Кроссовки</p>
+                        <p>Кеды</p>
+                        <p>Ботинки</p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="block" href='#'>
+                <img src="images/kids.jpg">
+                <div class="mask">
+                    <h1>Kids</h1>
+                    <div class="hvr">
+                        <p>Кроссовки</p>
+                        <p>Кеды</p>
+                        <p>Ботинки</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+          <p>&copy;2023 <b>SneaX Company</b>, All Rights Reserved</p>
+          <div class="footer-nav">
+            <a href="#">Back to Top</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+          </div>
+        </div>
+    </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById("open-modal").classList.add("active");
+        }
+
+        function closeModal() {
+            document.getElementById("open-modal").classList.remove("active");
+        }
+
+        function login(event) {
+            event.preventDefault(); // Предотвратить обычное поведение формы
+            // Здесь вы можете добавить свою логику проверки данных авторизации
+            // Например, отправка данных на сервер для проверки
+            // Если вход успешен:
+            closeModal(); // Закрыть модальное окно
+            alert("Вы успешно вошли!"); // Сообщение об успешном входе (по желанию)
+            return false; // Не отправлять форму
+        }
+    </script>
+</body>
+</html>
