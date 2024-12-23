@@ -1,0 +1,68 @@
+.slider{
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.prev-button{
+    margin: 400px 5%;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+}
+
+.next-button{
+margin: -300px 95%;
+position: absolute;
+display: block;
+z-index: 1;
+border-radius: 50px;
+height: 30px;
+width: 30px;
+}
+
+.slider-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    
+}
+
+.slider div{
+    height: 700px;
+}
+
+.inf{
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    flex-grow: 1;
+    background: #000;
+    opacity: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 16px;
+    text-decoration: none;
+}
+
+.inf:hover{
+    opacity: 1;
+}
