@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneaX</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/slider.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="menu">
+                <a href="man.html">Man</a>
+                <a href="woman.html">Women</a>
+                <a href="kids.html">Kids</a>
+                <a href="yandexgpt.html">YandexGPT</a>
+            </div>
+
+            <div class="logo">
+                <a href="index.html">Sneakers</a>
+            </div>
+
+            <div class="auth">
+                <a href='#open-modal' onclick="openModal()">
+                    <p>Auth</p>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="open-modal" class="modal-window">
+            <div>
+              <a href="#" class="modal-close" onclick="closeModal()">Close</a>
+              <p>Auth</p>
+              <div>
+                <form id="auth-form" onsubmit="return login(event)">
+                    <input class="inp" type="email" placeholder="Email" required>
+                    <input class="inp" type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+              </div>
+            </div>
+        </div>
+        <div class="main-cont">
+            <div class="slider">
+                <button type="submit" class="prev-button">&lt;</button>
+                <div class="slide-viewing" id="slide-0" style="display: block;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_1.jpg"class="slider-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-1" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-2" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_3.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-3" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_4.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-4" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_5.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-5" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_6.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-6" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_7.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-viewing" id="slide-7" style="display: none;">
+                    <div class="slider-content">
+                        <div class="slider-img">
+                            <img src="images/slider_woman/slider_8.jpg">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="next-button">&gt;</button>
+            </div>
+            <script src="js/slider.js"></script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+          <p>&copy;2023 <b>SneaX Company</b>, All Rights Reserved</p>
+          <div class="footer-nav">
+            <a href="#">Back to Top</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+          </div>
+        </div>
+      </footer>
+      <script>
+        function openModal() {
+            document.getElementById("open-modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("open-modal").style.display = "none";
+        }
+
+        function login(event) {
+            event.preventDefault(); // Предотвращает перезагрузку страницы при отправке формы
+            // Здесь можно добавить логику для проверки данных
+
+            // Закрывает модальное окно при успешном входе
+            closeModal();
+            alert("Вы успешно вошли!"); // Уведомление об успешном входе (по желанию)
+            return false; // Не отправлять форму
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll(".slide-viewing");
+            let currentSlide = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.style.display === "block") {
+                    currentSlide = index;
+                }
+            });
+
+            slides[currentSlide].style.display = "none";
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].style.display = "block";
+        }
+    </script>
+</body>
+</html>
