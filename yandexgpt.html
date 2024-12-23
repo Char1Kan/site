@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex-GPT</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href='css/styles.css' />
+    <link rel="stylesheet" href='css/ygpt.css' />
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="menu">
+            <a href="man.html">Man</a>
+            <a href="woman.html">Women</a>
+            <a href="kids.html">Kids</a>
+            <a href="yandexgpt.html">YandexGPT</a>
+        </div>
+
+        <div class="logo">
+            <a href="index.html">Sneakers</a>
+        </div>
+
+        <div class="auth">
+            <a href='#open-modal' onclick="openModal()">
+                <p>Auth</p>
+            </a>
+        </div>
+    </div>
+</header>
+<main>
+    <div id="open-modal" class="modal-window">
+        <div>
+          <a href="#" class="modal-close" onclick="closeModal()">Close</a>
+          <p>Auth</p>
+          <div>
+            <form id="auth-form" onsubmit="return login(event)">
+                <input class="inp" type="email" placeholder="Email" required>
+                <input class="inp" type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    <div id="container">
+        <section id="chat_bot">
+            <div id="messages"></div>
+            <div id="type_message">
+                <input id="manual" type="text" placeholder="Тема" autofocus="false" name="type_text" />
+                <input id="request" type="text" placeholder="Вопрос" autofocus="false" name="type_text" />
+                <input type="submit" value="Отправить" onclick="sendreq();">
+                <input type="submit" value="Очистить чат" onclick="clearChat();">
+                
+            </div>
+        </section>
+    </div>
+</main>
+<footer>
+    <div class="footer">
+        <p>&copy;2023 <b>SneaX Company</b>, All Rights Reserved</p>
+        <div class="footer-nav">
+            <a href="#">Back to Top</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+        </div>
+    </div>
+</footer> <div class="footer">
+    <p>&copy;2023 <b>SneaX Company</b>, All Rights Reserved</p>
+    <div class="footer-nav">
+      <a href="#">Back to Top</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</footer>
+<script>
+  function openModal() {
+      document.getElementById("open-modal").style.display = "block";
+  }
+
+  function closeModal() {
+      document.getElementById("open-modal").style.display = "none";
+  }
+
+  function login(event) {
+      event.preventDefault(); // Предотвращает перезагрузку страницы при отправке формы
+      // Здесь можно добавить логику для проверки данных
+
+      // Закрывает модальное окно при успешном входе
+      closeModal();
+      alert("Вы успешно вошли!"); // Уведомление об успешном входе (по желанию)
+      return false; // Не отправлять форму
+  }
+
+  function changeSlide(direction) {
+      const slides = document.querySelectorAll(".slide-viewing");
+      let currentSlide = 0;
+
+      slides.forEach((slide, index) => {
+          if (slide.style.display === "block") {
+              currentSlide = index;
+          }
+      });
+
+      slides[currentSlide].style.display = "none";
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      slides[currentSlide].style.display = "block";
+  }
+</script>
+</body>
+</html>
